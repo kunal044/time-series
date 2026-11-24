@@ -1,0 +1,203 @@
+{
+  "subset": "FD001",
+  "source": "C-MAPSS train trajectories",
+  "unit": 1,
+  "targets": [
+    "sensor_2",
+    "sensor_3"
+  ],
+  "history_last_cycle": 153,
+  "test_cycles": [
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192
+  ],
+  "models": [
+    "ar",
+    "ma",
+    "arima",
+    "sarima",
+    "ses",
+    "holt",
+    "arma",
+    "arimax",
+    "sarimax",
+    "var",
+    "varma",
+    "varima",
+    "varmax",
+    "holt_winters",
+    "tft"
+  ],
+  "configs": {
+    "ar": {},
+    "ma": {
+      "order": [
+        0,
+        0,
+        1
+      ],
+      "maxiter": 50
+    },
+    "arima": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "maxiter": 50
+    },
+    "sarima": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        10
+      ],
+      "maxiter": 50
+    },
+    "ses": {},
+    "holt": {},
+    "arma": {
+      "order": [
+        1,
+        0,
+        1
+      ]
+    },
+    "arimax": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "exog": [
+        "cycle"
+      ]
+    },
+    "sarimax": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        10
+      ],
+      "exog": [
+        "cycle"
+      ]
+    },
+    "var": {
+      "integration": 1,
+      "max_lags": 6,
+      "ic": "aic"
+    },
+    "varma": {
+      "order": [
+        1,
+        1
+      ],
+      "maxiter": 300
+    },
+    "varima": {
+      "order": [
+        1,
+        1
+      ],
+      "integration": 1,
+      "maxiter": 300
+    },
+    "varmax": {
+      "order": [
+        1,
+        1
+      ],
+      "exog": [
+        "cycle"
+      ],
+      "maxiter": 300
+    },
+    "holt_winters": {
+      "trend": "add",
+      "seasonal": "add",
+      "seasonal_periods": 10
+    },
+    "tft": {
+      "encoder_length": 16,
+      "hidden_size": 8,
+      "attention_head_size": 1,
+      "dropout": 0.05,
+      "batch_size": 16,
+      "learning_rate": 0.01,
+      "max_epochs": 1,
+      "patience": 2,
+      "accelerator": "cpu",
+      "threads": 1,
+      "seeds": [
+        42
+      ],
+      "split_seed": 42,
+      "val_fraction": 0.25,
+      "unit_limit": 8,
+      "limit_train_batches": 3,
+      "limit_val_batches": 2,
+      "observed": [
+        "sensor_3",
+        "sensor_4"
+      ],
+      "static": [
+        "initial_setting_1"
+      ],
+      "known": [
+        "cycle"
+      ]
+    }
+  },
+  "tft_mode": "cpu_smoke",
+  "resume": null
+}

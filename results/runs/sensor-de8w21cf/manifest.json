@@ -1,0 +1,204 @@
+{
+  "subset": "FD001",
+  "source": "C-MAPSS train trajectories",
+  "unit": 1,
+  "targets": [
+    "sensor_2",
+    "sensor_3"
+  ],
+  "history_last_cycle": 153,
+  "test_cycles": [
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192
+  ],
+  "models": [
+    "persistence",
+    "arch",
+    "garch",
+    "prophet",
+    "tft"
+  ],
+  "configs": {
+    "persistence": {},
+    "arch": {
+      "validation_units": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "candidates": [
+        {
+          "p": 1,
+          "q": 0,
+          "lags": 0
+        },
+        {
+          "p": 1,
+          "q": 0,
+          "lags": 1
+        },
+        {
+          "p": 2,
+          "q": 0,
+          "lags": 3
+        },
+        {
+          "p": 1,
+          "q": 0,
+          "lags": 0,
+          "trend_window": 60
+        }
+      ]
+    },
+    "garch": {
+      "validation_units": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "candidates": [
+        {
+          "p": 1,
+          "q": 1,
+          "lags": 0
+        },
+        {
+          "p": 1,
+          "q": 1,
+          "lags": 1
+        },
+        {
+          "p": 1,
+          "q": 1,
+          "lags": 3
+        },
+        {
+          "p": 2,
+          "q": 1,
+          "lags": 3
+        },
+        {
+          "p": 1,
+          "q": 1,
+          "lags": 0,
+          "trend_window": 60
+        }
+      ]
+    },
+    "prophet": {
+      "validation_units": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "candidates": [
+        {
+          "n_changepoints": 0
+        },
+        {
+          "n_changepoints": 5,
+          "changepoint_prior_scale": 0.05
+        },
+        {
+          "n_changepoints": 10,
+          "changepoint_prior_scale": 0.2,
+          "changepoint_range": 0.9
+        },
+        {
+          "growth": "flat"
+        }
+      ]
+    },
+    "tft": {
+      "encoder_length": 30,
+      "hidden_size": 32,
+      "attention_head_size": 4,
+      "dropout": 0.1,
+      "batch_size": 64,
+      "learning_rate": 0.003,
+      "max_epochs": 6,
+      "patience": 3,
+      "accelerator": "cpu",
+      "threads": 4,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "split_seed": 42,
+      "val_fraction": 0.2,
+      "observed": [
+        "sensor_3",
+        "sensor_4"
+      ],
+      "static": [
+        "initial_setting_1"
+      ],
+      "known": [
+        "cycle"
+      ],
+      "candidates": [
+        {},
+        {
+          "hidden_size": 16,
+          "attention_head_size": 2,
+          "dropout": 0.15,
+          "learning_rate": 0.001
+        }
+      ],
+      "limit_train_batches": 25
+    }
+  },
+  "tft_mode": "global_engine_holdout",
+  "resume": null,
+  "supplemental_run": "sensor-dok4_689"
+}

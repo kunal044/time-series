@@ -1,0 +1,166 @@
+{
+  "subset": "FD001",
+  "source": "C-MAPSS train trajectories",
+  "unit": 1,
+  "targets": [
+    "sensor_2",
+    "sensor_3"
+  ],
+  "history_last_cycle": 153,
+  "test_cycles": [
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192
+  ],
+  "models": [
+    "xgboost",
+    "lstm",
+    "gru"
+  ],
+  "configs": {
+    "xgboost": {
+      "lookback": 48,
+      "anchor_length": 8,
+      "stride": 4,
+      "observed": [
+        "sensor_4",
+        "sensor_7",
+        "sensor_12",
+        "sensor_15"
+      ],
+      "val_fraction": 0.2,
+      "split_seed": 42,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "threads": 2,
+      "candidates": [
+        {
+          "booster": {
+            "max_depth": 3,
+            "n_estimators": 100,
+            "learning_rate": 0.07,
+            "subsample": 0.8,
+            "early_stopping_rounds": 12
+          }
+        },
+        {
+          "booster": {
+            "max_depth": 5,
+            "n_estimators": 150,
+            "learning_rate": 0.04,
+            "subsample": 0.8,
+            "early_stopping_rounds": 12
+          }
+        }
+      ]
+    },
+    "lstm": {
+      "lookback": 48,
+      "anchor_length": 8,
+      "stride": 4,
+      "observed": [
+        "sensor_4",
+        "sensor_7",
+        "sensor_12",
+        "sensor_15"
+      ],
+      "val_fraction": 0.2,
+      "split_seed": 42,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "threads": 2,
+      "epochs": 15,
+      "patience": 4,
+      "batch_size": 128,
+      "hidden": 24,
+      "dropout": 0.1,
+      "learning_rate": 0.003,
+      "candidates": [
+        {},
+        {
+          "hidden": 48,
+          "dropout": 0.2,
+          "learning_rate": 0.001
+        }
+      ]
+    },
+    "gru": {
+      "lookback": 48,
+      "anchor_length": 8,
+      "stride": 4,
+      "observed": [
+        "sensor_4",
+        "sensor_7",
+        "sensor_12",
+        "sensor_15"
+      ],
+      "val_fraction": 0.2,
+      "split_seed": 42,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "threads": 2,
+      "epochs": 15,
+      "patience": 4,
+      "batch_size": 128,
+      "hidden": 24,
+      "dropout": 0.1,
+      "learning_rate": 0.003,
+      "candidates": [
+        {},
+        {
+          "hidden": 48,
+          "dropout": 0.2,
+          "learning_rate": 0.001
+        }
+      ]
+    }
+  },
+  "tft_mode": null,
+  "resume": null,
+  "reference_run": "C:\\Users\\HP\\Downloads\\desk\\time series\\results\\runs\\sensor-de8w21cf"
+}

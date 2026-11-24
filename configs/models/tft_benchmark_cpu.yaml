@@ -1,0 +1,4 @@
+max_epochs: 6
+patience: 3
+accelerator: cpu
+limit_train_batches: 25

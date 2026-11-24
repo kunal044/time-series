@@ -1,0 +1,4 @@
+model,status,detail
+xgboost,completed,
+lstm,completed,
+gru,completed,
